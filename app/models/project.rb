@@ -1,3 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
+
+  has_many :project_updates
+  has_many :subscribers
 end
