@@ -21,8 +21,6 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'postmark-rails'
 gem 'devise'
 gem 'stripe'
-gem 'chartkick'
-gem 'groupdate' # used by Chartkick
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -32,6 +30,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'faker'
 end
 
 group :development do
@@ -47,5 +46,4 @@ group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-callback-matchers'
   gem 'shoulda-matchers'
-  gem 'faker'
 end
