@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
+  get 'apply', to: 'pages#apply'
+
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
 
