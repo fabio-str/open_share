@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # resources :dashboard, only: [:index]
 
   get 'dashboard', to: 'dashboard#index'
+  get 'project_updates/new', to: 'project_updates#new'
 
   resources :account, only: [:index, :update]
   resources :billing_portal, only: [:create]
