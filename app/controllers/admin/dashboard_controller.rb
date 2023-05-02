@@ -1,7 +1,7 @@
 class Admin::DashboardController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! TODO – reinstate
+  before_action :set_flashes
 
   def index
-    @users = User.all.order(created_at: :desc)
   end
 end
