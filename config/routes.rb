@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
   get 'project_updates/new', to: 'project_updates#new'
+  
+  resources :user_submissions, only: [:create]
 
   resources :account, only: [:index, :update]
   resources :billing_portal, only: [:create]
