@@ -10,7 +10,8 @@
               <tr>
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Newsletter</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Website</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Content</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                   <span class="sr-only">Edit</span>
@@ -18,25 +19,27 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
+
+            <% @user_submissions.each do |user_submission| %>
               <tr>
-                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Fabio Strässle</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">fabio@open_share.com</td>
-                <td class="px-3 py-4 text-sm text-gray-500 max-w-xs">This is my update for the week. I worked on app #2 and finished the frontedn...</td>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= user_submission.name %></td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.email %></td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.website %></td>
+                <td class="px-3 py-4 text-sm text-gray-500 max-w-xs"><%= user_submission.text %></td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <div>
-                        <select id="location" name="location" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <option selected>Pending</option>
-                            <option>Approve</option>
-                            <option>Reject</option>
+                      <%= form_for user_submission, url: admin_user_submission_path(user_submission) do |form| %>
+                        <select id="user_submission_status" name="user_submission[status]" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option <%= "selected" if user_submission.status.nil? %> >Pending</option>
+                            <option <%= "selected" if user_submission.status == "Approve" %> >Approve</option>
+                            <option <%= "selected" if user_submission.status == "Reject" %> >Reject</option>
                         </select>
+                        <%= form.submit "Update", class: "w-full text-right text-indigo-600 hover:text-indigo-900" %>
+                      <% end %>
                     </div>
                 </td>
-                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
-                </td>
               </tr>
-
-              <!-- More people... -->
+            <% end %>
             </tbody>
           </table>
         </div>
