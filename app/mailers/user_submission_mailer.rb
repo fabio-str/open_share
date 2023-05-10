@@ -1,8 +1,10 @@
 class UserSubmissionMailer < ApplicationMailer
     default from: 'notifications@openshare.com'
   
-    def approve(user_submission)
+    def approve(user_submission, password)
       @name = user_submission.name
+      @email = user_submission.email
+      @password = password
       mail(to: user_submission.email, subject: 'Congrats! You\'ve been accepted by OpenShare.')
     end
 
