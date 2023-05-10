@@ -1,8 +1,7 @@
 class UserSubmissionsController < ApplicationController
     def create
         UserSubmission.create!(user_submission_params)
-        #redirect to a thank you page
-        redirect_to root_path, notice: "We've received your application."
+        redirect_to thanks_path
     end
 
     def user_submission_params

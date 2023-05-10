@@ -1,5 +1,5 @@
 class UserSubmission < ApplicationRecord
-    validates :first_name, :last_name, :email, :website, :text, :status, presence: true
+    validates :first_name, :last_name, :email, :website, :text, presence: true
 
     after_update :send_application_email
 
