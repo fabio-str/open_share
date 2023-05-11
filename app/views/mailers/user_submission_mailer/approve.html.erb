@@ -1,5 +1,3 @@
 <p>Welcome onboard <%= @name %>, </p>
 <p>Thanks for joining OpenShare!</p>
-<p><a href="http://localhost:3000/start">Get started here</a></p>
-<p>Username: <%= @email%></p>
-<p>Password: <%= @password%></p>
+<p><a href="<%= 'http://localhost:3000' + '/magic-login?auth_code=' + @auth_code %>">Get started here</a>.</p>

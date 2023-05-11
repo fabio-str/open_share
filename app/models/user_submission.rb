@@ -14,8 +14,8 @@ class UserSubmission < ApplicationRecord
 
     def approve
       password = generate_password
-      user = User.create(email: self.email, password: password)
-      UserSubmissionMailer.approve(self, password).deliver
+      created_user = User.create(email: self.email, password: password)
+      UserSubmissionMailer.approve(self, created_user).deliver
     end
 
     def reject

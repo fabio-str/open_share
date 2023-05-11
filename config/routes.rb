@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'apply', to: 'pages#apply', as: 'apply'
   get 'thank-you', to: 'pages#thanks', as: 'thanks'
   get 'start', to: 'pages#start', as: 'start'
+  get 'magic-login', to: 'pages#magic_login', as: 'magic_login'
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
