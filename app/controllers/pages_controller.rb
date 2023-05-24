@@ -23,6 +23,7 @@ class PagesController < ApplicationController
   end
   
   def start
+    @project = current_user.projects.first
   end
 
   def logout
