@@ -24,18 +24,18 @@
 
 <!-- newsletters -->
 
-<div class="p-5 max-w-3xl mx-auto space-y-2">
+<div class="p-5 max-w-3xl mx-auto space-y-4">
 
-  <% 5.times do %>
-    <div class="flex">
+  <% @other_projects.each do |p| %>
+    <div class="flex  border border-dashed border-2 p-2">
       <div class="basis-1/2">
         <div class="flex gap-x-2">
           <div class="basis-1/6">
-            <img src="https://via.placeholder.com/150" alt="">
+            <img src="https://logo.clearbit.com/<%= p.website %>" alt="">
           </div>
           <div class="basis-5/6">
-            <p class="text-lg">{{ Title }}</p>
-            <p class="text-sm">{{ Description }} {{ (URL) }}</p>
+            <p class="text-lg"><%= p.title %></p>
+            <p class="text-sm"><%= p.description %> <%= p.website %></p>
           </div>
         </div>
       </div>
